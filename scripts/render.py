@@ -26,7 +26,7 @@ def wrap(draw, text, fnt, width):
     return lines
 
 def run(cmd):
-    subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
 
 def render_frame(scene, title, idx, total, frame, frames, out):
     t=frame/max(frames,1)
