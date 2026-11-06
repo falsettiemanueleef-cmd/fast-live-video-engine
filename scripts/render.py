@@ -26,7 +26,11 @@ def wrap(draw, text, fnt, width):
     return lines
 
 def run(cmd):
-    subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+    try:
+        subprocess.run(cmd,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"Command failed ({e.returncode}): {' '.join(cmd)}\\nSTDOUT:\\n{e.stdout}\\nSTDERR:\\n{e.stderr}") from e
+
 
 def render_frame(scene, title, idx, total, frame, frames, out):
     t=frame/max(frames,1)
@@ -108,7 +112,7 @@ def main():
             run(['ffmpeg','-y','-framerate',str(FPS),'-i',str(frame_dir/'frame_%04d.jpg'),'-i',str(audio),'-t',f'{duration:.3f}','-vf','scale=1080:1920:flags=lanczos,format=yuv420p','-c:v','libx264','-preset','veryfast','-crf','21','-c:a','aac','-b:a','128k','-shortest',str(clip)])
             clips.append(clip)
         concat=tmp/'concat.txt'
-        concat.write_text(''.join(f"file '{p.as_posix()}'\\n" for p in clips),encoding='utf-8')
+        concat.write_text(''.join(f"file '{p.as_posix()}'\n" for p in clips),encoding='utf-8')
         run(['ffmpeg','-y','-f','concat','-safe','0','-i',str(concat),'-c','copy','-movflags','+faststart',args.output])
     print(f'Render complete: {args.output}')
 
