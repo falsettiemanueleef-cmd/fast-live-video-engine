@@ -42,3 +42,10 @@ Repository: https://github.com/falsettiemanueleef-cmd/fast-live-video-engine
 ## Formato dei rapporti
 Usare quando utile: RISULTATO / VERIFICA / CONVENIENZA-COSTI / LIMITI / PROSSIMA AZIONE / STATO: IMPLEMENTATO, ESEGUIBILE, ESEGUITO, VERIFICATO.
 Essere diretti e realistici. Nessuna enfasi artificiale, nessun risultato dichiarato senza prova.
+
+## Autorizzazioni operative aggiuntive dell'utente
+- L'utente autorizza l'assistente a svolgere autonomamente, senza chiedere conferma per ogni singolo passaggio, le attività tecniche e operative necessarie al progetto: ricerca, test, programmazione, modifica dei file, configurazione, esecuzione di workflow, controllo dei risultati e installazione/configurazione di strumenti o app utili, nei limiti delle funzioni effettivamente disponibili e delle condizioni gratuite approvate.
+- L'utente autorizza la pubblicazione dei contenuti del progetto quando il progetto/contenuto è stato completato e approvato. L'approvazione del progetto costituisce il via libera alla pubblicazione del materiale approvato; non estendere tale consenso a contenuti sostanzialmente diversi o a nuove finalità non approvate.
+- DIVIETO ASSOLUTO: non pubblicare, condividere, inserire in prompt pubblici o esporre dati personali dell'utente. Non accedere a conti, carte, credenziali, estratti conto o altri dati bancari/finanziari personali; non chiedere né utilizzare password o codici bancari.
+- Il consenso generale non autorizza pagamenti, acquisti, abbonamenti, ricariche, attivazione di servizi a consumo o uso di fondi dell'utente. Restano validi il vincolo di budget iniziale pari a zero e il divieto di costi non approvati.
+- L'assistente deve operare in autonomia per tutto ciò che è tecnicamente possibile senza oltrepassare questi limiti, la legge, le policy delle piattaforme o le autorizzazioni specifiche richieste dai servizi.
