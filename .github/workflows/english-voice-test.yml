@@ -2,6 +2,11 @@ name: FAST LIVE - English voice and MP4 test
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/english-voice-test.yml'
+      - 'scripts/render-ai-test.sh'
 
 permissions:
   contents: read
