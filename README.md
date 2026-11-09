@@ -25,3 +25,14 @@ The workflow is manual only (workflow_dispatch): it does not run on a schedule a
 ## Scope
 
 This is only a cloud-rendering proof of concept. It does not yet include AI generation, English voice-over, automatic editing, YouTube OAuth, or publishing.
+
+
+## English voice-over pipeline test
+
+A second cloud workflow tests an English neural voice-over and combines it with a vertical MP4. It uses Piper TTS and the LibriTTS-R voice model. The model card is downloaded and checked at runtime for its CC BY 4.0 dataset licence before synthesis. Attribution and licence details are included in the artifact.
+
+The workflow runs on demand or when its own test script/workflow changes. It does not publish to YouTube and requires no API key or payment method. GitHub Actions plan limits still apply.
+
+Run: Actions → FAST LIVE - English voice and MP4 test → Run workflow.
+
+The narration is currently a prepared test script, not AI-generated copy. This verifies neural TTS and video assembly only; automated AI script generation remains a separate step.
