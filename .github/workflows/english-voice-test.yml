@@ -17,7 +17,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-dejavu-core curl python3-pip
+          sudo apt-get install -y ffmpeg fonts-dejavu-core curl python3-venv
 
       - name: Generate English neural voice and vertical MP4
         run: bash scripts/render-ai-test.sh
