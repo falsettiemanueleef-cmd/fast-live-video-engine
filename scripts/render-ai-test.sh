@@ -12,15 +12,15 @@ curl -fL "$BASE/$VOICE.onnx" -o "$VOICE_DIR/$VOICE.onnx"
 curl -fL "$BASE/$VOICE.onnx.json" -o "$VOICE_DIR/$VOICE.onnx.json"
 curl -fL "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/libritts_r/medium/MODEL_CARD" -o "$VOICE_DIR/MODEL_CARD.txt"
 
-python -m pip install --user --upgrade pip
-python -m pip install --user piper-tts
-export PATH="$HOME/.local/bin:$PATH"
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install piper-tts
 
 cat > "$OUT/narration.txt" <<'TEXT'
 The world moves fast. Ideas travel farther when they are clear, useful, and made to be shared. FAST LIVE brings you concise stories, practical insights, and fresh perspectives from around the world. Stay curious. Stay informed. Live fast.
 TEXT
 
-piper --model "$VOICE_DIR/$VOICE.onnx" --config "$VOICE_DIR/$VOICE.onnx.json" --output_file "$OUT/voiceover.wav" < "$OUT/narration.txt"
+ .venv/bin/piper --model "$VOICE_DIR/$VOICE.onnx" --config "$VOICE_DIR/$VOICE.onnx.json" --output_file "$OUT/voiceover.wav" < "$OUT/narration.txt"
 
 # Fit a simple vertical visual to the exact narration duration.
 DURATION="$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$OUT/voiceover.wav")"
