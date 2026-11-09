@@ -1,0 +1,35 @@
+name: FAST LIVE - Cloud MP4 test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg and fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Render test video
+        run: bash scripts/render-test.sh
+
+      - name: Verify MP4
+        run: |
+          test -s output/fastlive-cloud-test.mp4
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 output/fastlive-cloud-test.mp4
+
+      - name: Upload MP4 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fastlive-cloud-test
+          path: output/fastlive-cloud-test.mp4
+          retention-days: 2
