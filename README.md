@@ -36,3 +36,16 @@ The workflow is manual only (`workflow_dispatch`); it does not run automatically
 Run: Actions → FAST LIVE - English voice and MP4 test → Run workflow.
 
 The narration is currently a prepared test script, not AI-generated copy. This verifies neural TTS and video assembly only; automated AI script generation remains a separate step.
+
+
+## Four-scene FAST LIVE Short
+
+The workflow `FAST LIVE - Four-scene Short` renders an original four-scene vertical video with English Piper narration and motion-graphic typography. It uses generated color backgrounds and text only; it does not use stock footage, external images, AI-generated editorial scripts, or YouTube publishing.
+
+- Script: `scripts/render-short.sh`
+- Workflow: `.github/workflows/multi-scene-short.yml`
+- Trigger: manual dispatch or a push that changes the renderer/workflow files.
+- Output: `output/short/fastlive-four-scene-short.mp4`
+- Artifact: `fastlive-four-scene-short`, retained for 2 days.
+
+The workflow is configured and will run on the workflow-file push. Do not treat it as verified until its run logs, MP4 streams, and uploaded artifact have been inspected. No publishing step is included.
