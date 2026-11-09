@@ -49,3 +49,23 @@ Essere diretti e realistici. Nessuna enfasi artificiale, nessun risultato dichia
 - DIVIETO ASSOLUTO: non pubblicare, condividere, inserire in prompt pubblici o esporre dati personali dell'utente. Non accedere a conti, carte, credenziali, estratti conto o altri dati bancari/finanziari personali; non chiedere né utilizzare password o codici bancari.
 - Il consenso generale non autorizza pagamenti, acquisti, abbonamenti, ricariche, attivazione di servizi a consumo o uso di fondi dell'utente. Restano validi il vincolo di budget iniziale pari a zero e il divieto di costi non approvati.
 - L'assistente deve operare in autonomia per tutto ciò che è tecnicamente possibile senza oltrepassare questi limiti, la legge, le policy delle piattaforme o le autorizzazioni specifiche richieste dai servizi.
+
+
+## Aggiornamento operativo — 10 novembre 2026
+
+### Test voce inglese + MP4
+- Workflow `FAST LIVE - English voice and MP4 test`: esecuzione conclusa con successo (run ID `42722047910`).
+- Log del job controllati; artifact `fastlive-english-voice-test` scaricato e ispezionato.
+- WAV voce inglese e MP4 verticale H.264/AAC presenti; MP4 1080×1920 e tracce audio/video verificate con ffprobe.
+- Il video del test è una schermata grafica statica: non è un prodotto editoriale finale.
+- Questo test non dimostra diritti commerciali definitivi per il motore/modello/dataset vocale. Conservare il model card e completare la verifica delle licenze prima della monetizzazione.
+
+### Pipeline Short a quattro scene
+- Aggiunto `scripts/render-short.sh`: genera narrazione inglese, voce Piper, quattro scene grafiche originali e un MP4 verticale con audio.
+- Aggiunto `.github/workflows/multi-scene-short.yml`: workflow manuale e triggerato da push sui file del renderer/workflow; artifact previsto `fastlive-four-scene-short`, retention 2 giorni.
+- Aggiornato README con la pipeline.
+- Commit renderer: `c5887f171efe58478efb36412a78293fcc98c8db`.
+- Commit workflow: `d535e9e198cc0e30a509d349791dbf008e8a974f`.
+- Commit README: `4bc881dceee026b4cae2e32ac7f0594eab1a30e2`.
+- Stato: IMPLEMENTATO e configurato. L'esecuzione del nuovo workflow e il relativo MP4 devono ancora essere verificati; non dichiararli riusciti finché non sono disponibili log e artifact ispezionati.
+- Nessuna pubblicazione YouTube prevista o eseguita.
