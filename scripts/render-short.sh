@@ -32,7 +32,7 @@ make_scene() {
   start="$(awk -v n="$index" -v s="$SEGMENT" 'BEGIN { printf "%.3f", n*s }')"
   ffmpeg -hide_banner -loglevel error -y \
     -f lavfi -i "color=c=$bg:s=1080x1920:r=30:d=$SEGMENT" \
-    -vf "drawbox=x=70:y=250:w=940:h=1420:color=white@0.045:t=3,drawbox=x=70:y=250:w=14:h=1420:color=0x55D6BE@0.95:t=fill,drawtext=fontfile=$FONT_BOLD:text='FAST LIVE':fontcolor=0x55D6BE:fontsize=44:x=100:y=310,drawtext=fontfile=$FONT_BOLD:text='$title':fontcolor=white:fontsize=76:line_spacing=24:x=(w-text_w)/2+sin(t*1.2)*12:y=h*0.43:box=1:boxcolor=black@0.08:boxborderw=24,drawtext=fontfile=$FONT_REG:text='$subtitle':fontcolor=0xD9E4EA:fontsize=38:x=(w-text_w)/2:y=h*0.59,drawtext=fontfile=$FONT_REG:text='STAY CURIOUS  •  LIVE FAST':fontcolor=white@0.65:fontsize=28:x=(w-text_w)/2:y=h-230" \
+    -vf "drawbox=x=70:y=250:w=940:h=1420:color=white@0.045:t=3,drawbox=x=70:y=250:w=14:h=1420:color=0x55D6BE@0.95:t=fill,drawtext=fontfile=$FONT_BOLD:text='FAST LIVE':fontcolor=0x55D6BE:fontsize=44:x=100:y=310,drawtext=fontfile=$FONT_BOLD:text='$title':fontcolor=white:fontsize=52:line_spacing=18:x=(w-text_w)/2+sin(t*1.2)*8:fix_bounds=true:y=h*0.43:box=1:boxcolor=black@0.08:boxborderw=24,drawtext=fontfile=$FONT_REG:text='$subtitle':fontcolor=0xD9E4EA:fontsize=38:x=(w-text_w)/2:y=h*0.59,drawtext=fontfile=$FONT_REG:text='STAY CURIOUS  •  LIVE FAST':fontcolor=white@0.65:fontsize=28:x=(w-text_w)/2:y=h-230" \
     -t "$SEGMENT" -an -c:v libx264 -preset veryfast -pix_fmt yuv420p "$OUT/scene-$index.mp4"
 }
 
